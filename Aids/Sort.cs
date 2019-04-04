@@ -8,6 +8,6 @@ namespace Aids
 {
     class Sort
     {
-        //1
+
     }
 }
