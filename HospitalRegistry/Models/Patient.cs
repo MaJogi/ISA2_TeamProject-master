@@ -27,7 +27,8 @@ namespace HospitalRegistry.Models
     public string IdCode { get; set; }
     public string Problem { get; set; } // will look like a comment on the site
     public DateTime ValidFrom { get; set; }
-    public DateTime ValidTo { get; set; }
+    public DateTime ValidTo { get; set; } 
+
 
 }
 }
