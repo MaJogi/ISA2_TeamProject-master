@@ -7,5 +7,9 @@ namespace HospitalRegistry.Models
 {
     public class Registry
     {
+        public Registry()
+        {
+            //CRUD
+        }
     }
 }
