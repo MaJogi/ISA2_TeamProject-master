@@ -9,5 +9,6 @@ namespace Aids
     public class SiiaKaivadAbiKlassid
     {
 
+
     }
 }
