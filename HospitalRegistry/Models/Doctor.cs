@@ -15,8 +15,8 @@ namespace HospitalRegistry.Models
         {
             Name = name;
             Cabinet = cabinet;
-            Email = email;
-            Phone = phone;
+            Email = email;  
+            Phone = phone;  
             Aadress = aadress;
         }
         //[DatabaseGenerated()] make ID databasegenerated
