@@ -8,7 +8,9 @@ namespace HospitalRegistry.Controllers
 {
     public class PatientController : Controller
     {
-        private readonly HospitalDbContext db;
+        //private readonly HospitalDbContext db;
+
+
         //private readonly SalesDbContext db;
 
         //public EmployeeController(SalesDbContext db) {this.db = db; }
