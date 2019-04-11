@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HospitalRegistry.Models
+namespace HospitalRegistry.Core
 {
     public class Patient // Registry has the power to create Patient from the data that they gather
         // from users via requests that they sent via online form

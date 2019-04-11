@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using HospitalRegistry.Models;
+using HospitalRegistry.Core;
 using Microsoft.AspNetCore.Mvc;
-using Remotion.Linq.Parsing.ExpressionVisitors.Transformation.PredefinedTransformations;
 
 namespace HospitalRegistry.Controllers
 {

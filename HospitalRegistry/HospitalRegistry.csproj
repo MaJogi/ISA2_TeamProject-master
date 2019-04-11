@@ -22,4 +22,11 @@
     <Folder Include="Views\Registy\" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aids\Aids.csproj" />
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\Facade\Facade.csproj" />
+  </ItemGroup>
+
 </Project>
