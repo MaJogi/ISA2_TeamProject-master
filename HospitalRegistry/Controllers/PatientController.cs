@@ -2,12 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HospitalRegistry.Models;
 using Microsoft.AspNetCore.Mvc;
+using Remotion.Linq.Parsing.ExpressionVisitors.Transformation.PredefinedTransformations;
 
 namespace HospitalRegistry.Controllers
 {
     public class PatientController : Controller
     {
+        public string GetString()
+        {
+            return "I am patient";
+        }
+
+        public ActionResult GetView()
+        {
+            Patient patient = new Patient();
+            patient.FirstName = "Vlad";
+            patient.LastName = "Jek";
+            patient.IdCode = "12345678911";
+            patient.Problem = "Head";
+            patient.ValidFrom = DateTime.Parse("2010-04-10");
+
+            ViewData["Patient"] = patient;
+            return View("MyView");
+        }
         //private readonly HospitalDbContext db;
 
 

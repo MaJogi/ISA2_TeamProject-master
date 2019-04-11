@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyView</title>
+</head>
+<body>
+    <div>
+        @{
+            Patient patient = (Patient)
+                ViewData["Patient"];
+        }
+        <b>Patient Details</b><br/>
+        Patient Name: @patient.FirstName@patient.LastName <br/>
+        Patient IdCode: @patient.IdCode <br/>
+        Patient Problem: @patient.Problem <br/>
+        Patient Valid From: @patient.ValidFrom <br/>
+        Patient Valid To: @patient.ValidTo 
+    </div>
+</body>
+</html>
