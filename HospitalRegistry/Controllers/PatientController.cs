@@ -1,22 +1,33 @@
 ﻿using System;
 using Facade;
+using Infra;
 using Microsoft.AspNetCore.Mvc;
 using HospitalRegistry.Core;
+using HospitalRegistry.Infra;
 
 namespace HospitalRegistry.Controllers
 {
     public class PatientController : Controller
-    {
-        
+    {  
         public ActionResult GetView()
         {
+
+            var model = new PatientListViewModel();
+
+            var patients = Patients.Get();
+
+            var list = new List<PatientViewModel>();
+
+            foreach (var p in patients)
+            {
+                var patient = new PatientViewModel(p);
+                list.Add(patient);
+            }
+
+            model.Patients = list;
+            model.UserName = "Admin";
             
-            //patient.ValidFrom = DateTime.Parse("2010-04-10");
-
-            var patient = new Patient("Vlad", "Jek", "12345678911","Head", DateTime.Parse("10/04/2010"));
-
-            var vmPatient = new PatientViewModel(patient, "Admin");
-            return View("MyView", vmPatient);
+            return View("MyView", model);
         }
 
 
