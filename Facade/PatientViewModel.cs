@@ -11,10 +11,13 @@ namespace Facade
     {
         public PatientViewModel(Patient patient, string userName)
         {
+            if (patient is null) return;
             setName(patient);
             setProblem(patient);
             setProblemColor(patient);
-            setUserName(userName);
+            setIdCode(patient);
+            setValidFrom(patient);
+            setValidTo(patient);
 
         }
 
@@ -24,7 +27,6 @@ namespace Facade
         public string ProblemColor { get; private set; } = "red";
         public DateTime ValidFrom { get; set; }
         public DateTime ValidTo { get; set; }
-        public string UserName { get; set; }
 
         internal void setName(Patient p)
         {
@@ -49,9 +51,18 @@ namespace Facade
             Problem = p.Problem;
         }
 
-        internal void setUserName(string userName)
+        internal void setIdCode(Patient p)
         {
-            UserName = userName ?? string.Empty;
+            IdCode = p.IdCode;
+        }
+
+        internal void setValidFrom(Patient p)
+        {
+            ValidFrom = p.ValidFrom;
+        }
+        internal void setValidTo(Patient p)
+        {
+            ValidTo = p.ValidTo;
         }
     }
 }

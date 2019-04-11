@@ -13,10 +13,10 @@ namespace HospitalRegistry.Controllers
             
             //patient.ValidFrom = DateTime.Parse("2010-04-10");
 
-            var patient = new Patient("Vlad", "Jek", "12345678911","Head");
+            var patient = new Patient("Vlad", "Jek", "12345678911","Head", DateTime.Parse("10/04/2010"));
 
             var vmPatient = new PatientViewModel(patient, "Admin");
-            return View("MyView", patient);
+            return View("MyView", vmPatient);
         }
 
 

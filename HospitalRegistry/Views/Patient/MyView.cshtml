@@ -1,4 +1,5 @@
-﻿@model Facade.PatientViewModel
+﻿@using global::Facade
+@model Facade.PatientListViewModel
 @{
     Layout = null;
 }
@@ -13,26 +14,26 @@
 <body>
     Hello @Model.UserName
     <hr/>
-    <div>
-        <b>Patient Details</b><br/>
-        Patient Name: @Model.PatientName <br/>
-        Patient IdCode: @Model.IdCode <br/>
-
-        @if (Model.Problem == "Head")
-        {
-            <span style="background-color: crimson">
-                Patient Problem: @Model.Problem <br/>
-            </span>
-        }
-        else
-        {
-            <span style="background-color: indigo">
-                Patient Problem: @Model.Problem <br/>
-            </span>
-        }
-
-        Patient Valid From: @Model.ValidFrom.ToString("yyyy-MM-dd") <br/>
-        Patient Valid To: @Model.ValidTo.ToString("yyyy-MM-dd")
-    </div>
+<div>
+<table>
+    <tr>
+        <th>Patient Name</th>
+        <th>Id Code</th>
+        <th>Problem</th>
+        <th>Valid from</th>
+        <th>Valid to</th>
+    </tr>
+    @foreach (PatientViewModel item in Model.Patients)
+    {
+        <tr>
+            <td>@item.PatientName</td>
+            <td>@item.IdCode</td>
+            <td style="background-color: @item.ProblemColor">@item.Problem</td>
+            <td>@item.ValidFrom.ToString("dd/MM/yyyy")</td>
+            <td>@item.ValidTo.ToString("dd/MM/yyyy")</td>
+        </tr>
+    }
+</table>
+</div>
 </body>
 </html>
