@@ -1,10 +1,10 @@
-﻿using System;
-using HospitalRegistry.Core;
+﻿using HospitalRegistry.Core;
+using System;
 using System.Collections.Generic;
 
 namespace Infra
 {
-    public class Patients
+    public static class Patients
     {
         public static List<Patient> Get()
         {

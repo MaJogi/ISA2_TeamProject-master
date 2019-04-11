@@ -1,9 +1,9 @@
 ﻿using System;
 using Facade;
-using Infra;
 using Microsoft.AspNetCore.Mvc;
 using HospitalRegistry.Core;
-using HospitalRegistry.Infra;
+using System.Collections.Generic;
+using Infra;
 
 namespace HospitalRegistry.Controllers
 {
@@ -11,7 +11,6 @@ namespace HospitalRegistry.Controllers
     {  
         public ActionResult GetView()
         {
-
             var model = new PatientListViewModel();
 
             var patients = Patients.Get();
@@ -26,9 +25,11 @@ namespace HospitalRegistry.Controllers
 
             model.Patients = list;
             model.UserName = "Admin";
-            
+
             return View("MyView", model);
         }
+        
+       
 
 
         //private readonly HospitalDbContext db;
