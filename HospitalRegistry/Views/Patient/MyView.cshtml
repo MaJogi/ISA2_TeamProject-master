@@ -1,4 +1,4 @@
-﻿
+﻿@model Patient
 @{
     Layout = null;
 }
@@ -12,16 +12,25 @@
 </head>
 <body>
     <div>
-        @{
-            Patient patient = (Patient)
-                ViewData["Patient"];
-        }
         <b>Patient Details</b><br/>
-        Patient Name: @patient.FirstName@patient.LastName <br/>
-        Patient IdCode: @patient.IdCode <br/>
-        Patient Problem: @patient.Problem <br/>
-        Patient Valid From: @patient.ValidFrom <br/>
-        Patient Valid To: @patient.ValidTo 
+        Patient Name: @Model.FirstName @Model.LastName <br/>
+        Patient IdCode: @Model.IdCode <br/>
+
+        @if (Model.Problem == "Head")
+        {
+            <span style="background-color: crimson">
+                Patient Problem: @Model.Problem <br/>
+            </span>
+        }
+        else
+        {
+            <span style="background-color: indigo">
+                Patient Problem: @Model.Problem <br/>
+            </span>
+        }
+        
+        Patient Valid From: @Model.ValidFrom.ToString("yyyy-MM-dd") <br/>
+        Patient Valid To: @Model.ValidTo.ToString("yyyy-MM-dd") 
     </div>
 </body>
 </html>

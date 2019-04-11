@@ -24,8 +24,8 @@ namespace HospitalRegistry.Controllers
             patient.Problem = "Head";
             patient.ValidFrom = DateTime.Parse("2010-04-10");
 
-            ViewData["Patient"] = patient;
-            return View("MyView");
+            
+            return View("MyView", patient);
         }
         //private readonly HospitalDbContext db;
 
