@@ -8,6 +8,7 @@ namespace HospitalRegistry.Models
 {
     public class Patient // Registry has the power to create Patient from the data that they gather
         // from users via requests that they sent via online form
+        //
     {
         public Patient() { } // Default countroller is needed to create empty Patient
 
