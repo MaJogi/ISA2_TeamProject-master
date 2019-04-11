@@ -1,4 +1,4 @@
-﻿@model Patient
+﻿@model Facade.PatientViewModel
 @{
     Layout = null;
 }
@@ -11,9 +11,11 @@
     <title>MyView</title>
 </head>
 <body>
+    Hello @Model.UserName
+    <hr/>
     <div>
         <b>Patient Details</b><br/>
-        Patient Name: @Model.FirstName @Model.LastName <br/>
+        Patient Name: @Model.PatientName <br/>
         Patient IdCode: @Model.IdCode <br/>
 
         @if (Model.Problem == "Head")
@@ -28,9 +30,9 @@
                 Patient Problem: @Model.Problem <br/>
             </span>
         }
-        
+
         Patient Valid From: @Model.ValidFrom.ToString("yyyy-MM-dd") <br/>
-        Patient Valid To: @Model.ValidTo.ToString("yyyy-MM-dd") 
+        Patient Valid To: @Model.ValidTo.ToString("yyyy-MM-dd")
     </div>
 </body>
 </html>

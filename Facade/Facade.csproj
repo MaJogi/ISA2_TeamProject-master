@@ -43,7 +43,14 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="ErrorViewModel.cs" />
+    <Compile Include="PatientViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{3ADBA739-B0E1-4F4F-B23B-BA1A364E1ABC}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

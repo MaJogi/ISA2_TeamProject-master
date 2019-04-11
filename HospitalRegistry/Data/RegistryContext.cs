@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using HospitalRegistry.Models;
+﻿using HospitalRegistry.Core;
 using Microsoft.EntityFrameworkCore;
 
 namespace HospitalRegistry.Data

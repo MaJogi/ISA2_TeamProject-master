@@ -1,28 +1,25 @@
 ﻿using System;
-using HospitalRegistry.Core;
+using Facade;
 using Microsoft.AspNetCore.Mvc;
+using HospitalRegistry.Core;
 
 namespace HospitalRegistry.Controllers
 {
     public class PatientController : Controller
     {
-        public string GetString()
-        {
-            return "I am patient";
-        }
-
+        
         public ActionResult GetView()
         {
-            Patient patient = new Patient();
-            patient.FirstName = "Vlad";
-            patient.LastName = "Jek";
-            patient.IdCode = "12345678911";
-            patient.Problem = "Head";
-            patient.ValidFrom = DateTime.Parse("2010-04-10");
-
             
+            //patient.ValidFrom = DateTime.Parse("2010-04-10");
+
+            var patient = new Patient("Vlad", "Jek", "12345678911","Head");
+
+            var vmPatient = new PatientViewModel(patient, "Admin");
             return View("MyView", patient);
         }
+
+
         //private readonly HospitalDbContext db;
 
 
