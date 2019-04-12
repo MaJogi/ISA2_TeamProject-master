@@ -28,8 +28,9 @@ namespace HospitalRegistry.Controllers
 
             return View("MyView", model);
         }
+
         
-       
+
 
 
         //private readonly HospitalDbContext db;

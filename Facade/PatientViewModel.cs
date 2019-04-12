@@ -9,7 +9,7 @@ namespace Facade
 {
     public class PatientViewModel
     {
-        public PatientViewModel(Patient patient, string userName)
+        public PatientViewModel(Patient patient)
         {
             if (patient is null) return;
             setName(patient);

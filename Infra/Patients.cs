@@ -1,6 +1,7 @@
-﻿using HospitalRegistry.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Text;
+using HospitalRegistry.Core;
 
 namespace Infra
 {
@@ -16,5 +17,7 @@ namespace Infra
             };
             return patients;
         }
+
+
     }
 }
