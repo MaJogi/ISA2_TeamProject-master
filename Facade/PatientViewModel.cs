@@ -35,14 +35,14 @@ namespace Facade
 
         public void setProblemColor(Patient p)
         {
-            if (!ReferenceEquals(null, p))
+            if (!ReferenceEquals(null, p)) // if patient isn't null
             {
-                ProblemColor = p.Problem == "Head" ? "crimson" : "indigo";
+                ProblemColor = p.Problem == "Head" ? "Yellow" : "Magenta";
                 
             }
             else
             {
-                ProblemColor = "red";
+                ProblemColor = "Red";
             }
         }
 
