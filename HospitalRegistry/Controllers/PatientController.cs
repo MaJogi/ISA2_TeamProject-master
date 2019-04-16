@@ -8,24 +8,21 @@ using Infra;
 namespace HospitalRegistry.Controllers
 {
     public class PatientController : Controller
-    {  
+    {
+        private readonly RegistryDbContext db;
+        public PatientController(RegistryDbContext db) { this.db = db; }
         public ActionResult GetView()
         {
             var model = new PatientListViewModel();
-
-            var patients = Patients.Get();
-
+            var patients = Patients.Get(db);
             var list = new List<PatientViewModel>();
-
             foreach (var p in patients)
             {
                 var patient = new PatientViewModel(p);
                 list.Add(patient);
             }
-
             model.Patients = list;
             model.UserName = "Admin";
-
             return View("MyView", model);
         }
 

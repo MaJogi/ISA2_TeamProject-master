@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using HospitalRegistry.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Infra;
 
 namespace HospitalRegistry
 {
@@ -35,15 +36,20 @@ namespace HospitalRegistry
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<ApplicationDbContext>(options =>
+            //We don't know what services.adddbcontext<applicationdbcontext> does, maybe remove?
+            //services.AddDbContext<ApplicationDbContext>(options =>
+            //    options.UseSqlServer(
+            //        Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<RegistryDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<RegistryContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
+                    Configuration.GetConnectionString("DefaultConnection"),
+                    b => b.MigrationsAssembly("HospitalRegistry")));
+
+            services.AddDefaultIdentity<IdentityUser>() //should we keep it? Code breaks if we remove it
                 .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                //.AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<RegistryDbContext>();
 
             services.AddMvc()
                 .AddNewtonsoftJson();
