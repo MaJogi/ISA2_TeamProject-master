@@ -11,8 +11,9 @@ namespace HospitalRegistry.Core
     {
         // Registry has the power to create Patient from the data that they gather
         // from users via requests that they sent via online form
-        private const string requiredField = "Required field!";
+        private const string requiredField = "Required field";
         private const string lenghtIsToBig = "Length should be less than 20 characters";
+        private const string wrongLength = "Wrong Length";
 
         public Patient() { } // Default countroller is needed to create empty Patient
 
@@ -39,7 +40,7 @@ namespace HospitalRegistry.Core
         [StringLength(20, ErrorMessage = lenghtIsToBig)]
         public string LastName { get; set; }
         [Required(ErrorMessage = requiredField)]
-        [StringLength(11, MinimumLength = 11, ErrorMessage = lenghtIsToBig)]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = wrongLength)]
         public string IdCode { get; set; }
         public string Problem { get; set; } // will look like a comment on the site
         public DateTime ValidFrom { get; set; }
