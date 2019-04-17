@@ -21,8 +21,9 @@ namespace HospitalRegistry.Migrations
 
             modelBuilder.Entity("HospitalRegistry.Core.Patient", b =>
                 {
-                    b.Property<string>("PatientID")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("PatientId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("FirstName");
 
@@ -36,7 +37,7 @@ namespace HospitalRegistry.Migrations
 
                     b.Property<DateTime>("ValidTo");
 
-                    b.HasKey("PatientID");
+                    b.HasKey("PatientId");
 
                     b.ToTable("Patients");
                 });

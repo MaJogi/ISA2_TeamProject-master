@@ -11,7 +11,7 @@ namespace HospitalRegistry.Controllers
     {
         private readonly RegistryDbContext db;
         public PatientController(RegistryDbContext db) { this.db = db; }
-        public ActionResult GetView()
+        public ActionResult Index()
         {
             var model = new PatientListViewModel();
             var patients = Patients.Get(db);

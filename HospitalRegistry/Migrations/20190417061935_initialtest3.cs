@@ -1,9 +1,10 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HospitalRegistry.Migrations
 {
-    public partial class initial : Migration
+    public partial class initialtest3 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,7 +12,8 @@ namespace HospitalRegistry.Migrations
                 name: "Patients",
                 columns: table => new
                 {
-                    PatientID = table.Column<string>(nullable: false),
+                    PatientId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     IdCode = table.Column<string>(nullable: true),
@@ -21,7 +23,7 @@ namespace HospitalRegistry.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Patients", x => x.PatientID);
+                    table.PrimaryKey("PK_Patients", x => x.PatientId);
                 });
         }
 

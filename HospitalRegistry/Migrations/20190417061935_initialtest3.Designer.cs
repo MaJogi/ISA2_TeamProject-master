@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalRegistry.Migrations
 {
     [DbContext(typeof(RegistryDbContext))]
-    [Migration("20190416141002_initial")]
-    partial class initial
+    [Migration("20190417061935_initialtest3")]
+    partial class initialtest3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,8 +23,9 @@ namespace HospitalRegistry.Migrations
 
             modelBuilder.Entity("HospitalRegistry.Core.Patient", b =>
                 {
-                    b.Property<string>("PatientID")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("PatientId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("FirstName");
 
@@ -38,7 +39,7 @@ namespace HospitalRegistry.Migrations
 
                     b.Property<DateTime>("ValidTo");
 
-                    b.HasKey("PatientID");
+                    b.HasKey("PatientId");
 
                     b.ToTable("Patients");
                 });
