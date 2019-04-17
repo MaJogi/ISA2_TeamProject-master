@@ -29,7 +29,7 @@ namespace HospitalRegistry.Controllers
 
         public ActionResult AddNew()
         {
-            return View("CreateEmployee");
+            return View("CreatePatient");
         }
 
         public string SavePatient(Patient p)
