@@ -32,9 +32,16 @@ namespace HospitalRegistry.Controllers
             return View("CreatePatient");
         }
 
-        public string SavePatient(Patient p)
+        public ActionResult SavePatient(Patient p, string BtnSubmit)
         {
-            return p.FirstName + "|" + p.LastName + "|" + p.IdCode + "|" + p.Problem + "|" + p.ValidFrom + "|" + p.ValidTo;
+            switch (BtnSubmit)
+            {
+                case "Save Patient":
+                    return Content(p.FirstName + "|" + p.LastName + "|" + p.IdCode + "|" + p.Problem + "|" + p.ValidFrom + "|" + p.ValidTo);
+                case "Cancel":
+                    return RedirectToAction("Index");
+            }
+            return new EmptyResult();
         }
 
 

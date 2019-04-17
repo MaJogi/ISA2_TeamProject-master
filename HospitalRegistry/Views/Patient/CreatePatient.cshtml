@@ -1,6 +1,15 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Create Patient";
+    <script>
+        function ResetForm() {
+            document.getElementById("TxtFName").value = "";
+            document.getElementById("TxtLName").value = "";
+            document.getElementById("TxtIdCode").value = "";
+            document.getElementById("TxtProblem").value = "";
+            document.getElementById("TxtValidFrom").value = null;
+            document.getElementById("TxtValidTo").value = null;
+        }
+    </script>
 }
 
 <!DOCTYPE html>
@@ -14,12 +23,13 @@
         <form action="/Patient/SavePatient" method="post">
             <p>First Name: <input type="text" id="TxtFName" name="FirstName" Value="" /><p />
             <p>Last Name: <input type="text" id="TxtLName" name="LastName" Value="" /><p />
-            <p>IdCode: <input type="text" id="TxtIDCode" name="IDCode" Value="" /><p />
+            <p>IdCode: <input type="text" id="TxtIdCode" name="IdCode" Value="" /><p />
             <p>Problem: <input type="text" id="TxtProblem" name="Problem" Value="" /><p />
             <p>Valid From: <input type="date" id="TxtValidFrom" name="ValidFrom" Value="" /><p />
             <p>Valid To: <input type="date" id="TxtValidTo" name="ValidTo" Value="" /><p />
-                <input type="submit" name="BtnSave" value="Save Patient" />
-                <input type="button" name="BtnReset" value="Reset" />
+            <input type="submit" name="BtnSubmit" value="Save Patient" />
+            <input type="button" name="BtnReset" value="Reset" onclick="ResetForm()" />
+            <input type="submit" name="BtnSubmit" value="Cancel" />
         </form>
     </div>
 </body>
