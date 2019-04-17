@@ -22,10 +22,14 @@ namespace HospitalRegistry.Controllers
                 list.Add(patient);
             }
             model.Patients = list;
-            model.UserName = "Admin";
-            return View("MyView", model);
+
+            return View("Index", model);
         }
 
+        public ActionResult AddNew()
+        {
+            return View("CreateEmployee");
+        }
         
 
 

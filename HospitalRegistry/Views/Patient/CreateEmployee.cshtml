@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Create Employee";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateEmployee</title>
+</head>
+<body>
+    <div>
+        <form action="/Patient/SavePatient" method="post">
+            <p>First Name: <input type="text" id="TxtFName" name="FirstName" Value="" /><p />
+            <p>Last Name: <input type="text" id="TxtLName" name="LastName" Value="" /><p />
+            <p>IdCode: <input type="text" id="TxtIDCode" name="IDCode" Value="" /><p />
+            <p>Problem: <input type="text" id="TxtProblem" name="Problem" Value="" /><p />
+            <p>Valid From: <input type="date" id="TxtValidFrom" name="ValidFrom" Value="" /><p />
+            <p>Valid To: <input type="date" id="TxtValidTo" name="ValidTo" Value="" /><p />
+                <input type="submit" name="BtnSave" value="Save Employee" />
+                <input type="button" name="BtnReset" value="Reset" />
+        </form>
+    </div>
+</body>
+</html>

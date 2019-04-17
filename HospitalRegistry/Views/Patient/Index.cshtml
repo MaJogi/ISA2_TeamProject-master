@@ -1,7 +1,7 @@
 ﻿@using global::Facade
 @model Facade.PatientListViewModel
 @{
-    Layout = null;
+    ViewBag.Title = "Employees";
 }
 
 <!DOCTYPE html>
@@ -9,21 +9,21 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>MyView</title>
+    <title>IndexPageForPatients</title>
 </head>
 <body>
-    Hello @Model.UserName
-    <hr/>
-<div>
-<table>
+    <p>
+        <a href="/Patient/AddNew">Add New</a>
+    </p>
+<table class="table">
     <tr>
         <th>Patient Name</th>
-        <th>Id Code</th>
-        <th>Problem</th>
+        <th>IdCode</th>
+        <th>Problem/th>
         <th>Valid from</th>
         <th>Valid to</th>
     </tr>
-    @foreach (PatientViewModel item in Model.Patients)
+    @foreach (var item in Model.Patients)
     {
         <tr>
             <td>@item.PatientName</td>
@@ -34,6 +34,26 @@
         </tr>
     }
 </table>
-</div>
+@*<div>
+    <table>
+        <tr>
+            <th>Patient Name</th>
+            <th>Id Code</th>
+            <th>Problem</th>
+            <th>Valid from</th>
+            <th>Valid to</th>
+        </tr>
+        @foreach (PatientViewModel item in Model.Patients)
+        {
+            <tr>
+                <td>@item.PatientName</td>
+                <td>@item.IdCode</td>
+                <td style="background-color: @item.ProblemColor">@item.Problem</td>
+                <td>@item.ValidFrom.ToString("dd/MM/yyyy")</td>
+                <td>@item.ValidTo.ToString("dd/MM/yyyy")</td>
+            </tr>
+        }
+    </table>
+</div>*@
 </body>
 </html>

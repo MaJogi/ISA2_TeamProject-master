@@ -9,6 +9,5 @@ namespace Facade
     public class PatientListViewModel
     {
         public List<PatientViewModel> Patients { get; set; }
-        public string UserName { get; set; }
     }
 }
