@@ -5,6 +5,7 @@ using HospitalRegistry.Core;
 using System.Collections.Generic;
 using Infra;
 
+
 namespace HospitalRegistry.Controllers
 {
     public class PatientController : Controller
@@ -30,7 +31,11 @@ namespace HospitalRegistry.Controllers
         {
             return View("CreateEmployee");
         }
-        
+
+        public string SavePatient(Patient p)
+        {
+            return p.FirstName + "|" + p.LastName + "|" + p.IdCode + "|" + p.Problem + "|" + p.ValidFrom + "|" + p.ValidTo;
+        }
 
 
 
