@@ -21,9 +21,12 @@
 <body>
     <div>
         <form action="/Patient/SavePatient" method="post">
-            <p>First Name: <input type="text" id="TxtFName" name="FirstName" Value="" /><p />
-            <p>Last Name: <input type="text" id="TxtLName" name="LastName" Value="" /><p />
+            <p>First Name: <input type="text" id="TxtFName" name="FirstName" Value="" />
+            @Html.ValidationMessage("FirstName")<p />
+            <p>Last Name: <input type="text" id="TxtLName" name="LastName" Value="" />
+            @Html.ValidationMessage("LastName")<p />
             <p>IdCode: <input type="text" id="TxtIdCode" name="IdCode" Value="" /><p />
+            @Html.ValidationMessage("IdCode") < p />
             <p>Problem: <input type="text" id="TxtProblem" name="Problem" Value="" /><p />
             <p>Valid From: <input type="date" id="TxtValidFrom" name="ValidFrom" Value="" /><p />
             <p>Valid To: <input type="date" id="TxtValidTo" name="ValidTo" Value="" /><p />

@@ -37,10 +37,17 @@ namespace HospitalRegistry.Controllers
             switch (BtnSubmit)
             {
                 case "Save Patient":
-                    Patients patients = new Patients();
-                    patients.Save(p, db);
-                    return RedirectToAction("Index");
-                    //return Content(p.FirstName + "|" + p.LastName + "|" + p.IdCode + "|" + p.Problem + "|" + p.ValidFrom + "|" + p.ValidTo);
+                    if (ModelState.IsValid)
+                    {
+                        Patients patients = new Patients();
+                        patients.Save(p, db);
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        return View("CreatePatient");
+                    }
+                    
                 case "Cancel":
                     return RedirectToAction("Index");
             }
