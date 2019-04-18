@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Core;
 using HospitalRegistry.Core;
 
 namespace Infra
@@ -18,5 +19,9 @@ namespace Infra
             db.SaveChanges();
             return p;
         }
+
+        public static bool IsValidUser(UserDetails user)
+        { return user.UserName == "Admin" && user.Password == "Admin";  }
+
     }
 }

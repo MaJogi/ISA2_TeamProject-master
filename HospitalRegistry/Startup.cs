@@ -37,9 +37,9 @@ namespace HospitalRegistry
             });
 
             //We don't know what services.adddbcontext<applicationdbcontext> does, maybe remove?
-            //services.AddDbContext<ApplicationDbContext>(options =>
-            //    options.UseSqlServer(
-            //        Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDbContext<RegistryDbContext>(options =>
                 options.UseSqlServer(
@@ -48,7 +48,7 @@ namespace HospitalRegistry
 
             services.AddDefaultIdentity<IdentityUser>() //should we keep it? Code breaks if we remove it
                 .AddDefaultUI(UIFramework.Bootstrap4)
-                //.AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddEntityFrameworkStores<RegistryDbContext>();
 
             services.AddMvc()
