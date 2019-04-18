@@ -29,29 +29,39 @@ namespace HospitalRegistry.Controllers
 
         public ActionResult AddNew()
         {
-            return View("CreatePatient");
+            return View("CreatePatient", new CreatePatientViewModel());
         }
 
         public ActionResult SavePatient(Patient p, string BtnSubmit)
         {
-            switch (BtnSubmit)
-            {
-                case "Save Patient":
-                    if (ModelState.IsValid)
-                    {
-                        Patients patients = new Patients();
-                        patients.Save(p, db);
-                        return RedirectToAction("Index");
-                    }
-                    else
-                    {
-                        return View("CreatePatient");
-                    }
-                    
-                case "Cancel":
-                    return RedirectToAction("Index");
-            }
-            return new EmptyResult();
+            //switch (BtnSubmit)
+            //{
+            //    case "Save Patient":
+            //        if (ModelState.IsValid)
+            //        {
+            //            Patients patients = new Patients();
+            //            patients.Save(p, db);
+            //            return RedirectToAction("Index");
+            //        }
+            //        else
+            //        {
+            //            return View("CreatePatient");
+            //        }
+
+            //    case "Cancel":
+            //        return RedirectToAction("Index");
+            //}
+            //return new EmptyResult();
+
+            if (BtnSubmit != "Save Patient") return RedirectToAction("Index");
+            if (!ModelState.IsValid) return View("CreatePatient", new CreatePatientViewModel());
+            return save(p);
+        }
+        private ActionResult save(Patient p)
+        {
+            Patients patients = new Patients();
+            patients.Save(p, db);
+            return RedirectToAction("Index");
         }
 
 

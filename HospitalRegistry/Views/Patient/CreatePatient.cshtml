@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Facade.CreatePatientViewModel
+@{
     ViewBag.Title = "Create Patient";
     <script>
         function ResetForm() {
@@ -21,11 +22,11 @@
 <body>
     <div>
         <form action="/Patient/SavePatient" method="post">
-            <p>First Name: <input type="text" id="TxtFName" name="FirstName" Value="" />
+            <p>First Name: <input type="text" id="TxtFName" name="FirstName" Value="@Model.FirstName"/>
             @Html.ValidationMessage("FirstName")<p />
-            <p>Last Name: <input type="text" id="TxtLName" name="LastName" Value="" />
+            <p>Last Name: <input type="text" id="TxtLName" name="LastName" Value="@Model.LastName" />
             @Html.ValidationMessage("LastName")<p />
-            <p>IdCode: <input type="text" id="TxtIdCode" name="IdCode" Value=""  />
+            <p>IdCode: <input type="text" id="TxtIdCode" name="IdCode" Value="@Model.IdCode"  />
             @Html.ValidationMessage("IdCode") <p />
             <p>Problem: <input type="text" id="TxtProblem" name="Problem" Value="" /><p />
             <p>Valid From: <input type="date" id="TxtValidFrom" name="ValidFrom" Value="" /><p />

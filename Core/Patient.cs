@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using Core;
 
 namespace HospitalRegistry.Core
 {
@@ -33,14 +34,13 @@ namespace HospitalRegistry.Core
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         //[DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int PatientId { get; set; }
-        [Required(ErrorMessage = requiredField)]
-        [StringLength(20, ErrorMessage = lenghtIsToBig)]
-        public string FirstName { get; set; }
-        [Required(ErrorMessage = requiredField)]
-        [StringLength(20, ErrorMessage = lenghtIsToBig)]
+        //[Required(ErrorMessage = requiredField)]
+        [NameValidation]
+        public string FirstName { get; set; }        
+        [NameValidation]
         public string LastName { get; set; }
-        [Required(ErrorMessage = requiredField)]
-        [StringLength(11, MinimumLength = 11, ErrorMessage = wrongLength)]
+        //[StringLength(11, MinimumLength = 11, ErrorMessage = wrongLength)]
+        [IdCodeValidation]
         public string IdCode { get; set; }
         public string Problem { get; set; } // will look like a comment on the site
         public DateTime ValidFrom { get; set; }
@@ -48,5 +48,6 @@ namespace HospitalRegistry.Core
 
         //Todo
         //Add phonenumber
+        //Add complex logic to validate idcode and get birthdate and gender from idcode.
     }
 }
