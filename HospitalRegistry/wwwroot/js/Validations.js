@@ -15,10 +15,13 @@ function ContainesOnlyLetters() {
     return "Use only letters!";
 }
 
-
-
-
-
+function ContainesOnlyNumbers() {
+    var numbers = /^ [0 - 9] * $ /;
+    if ((document.getElementById("IdCode").value.match(numbers))) {
+        return "";
+    }
+    return "Use only letters!";
+}
 
 
 function LengthIsValid() {
@@ -32,11 +35,43 @@ function LengthIsValid() {
 
 var IdCodeLenght = 11
 
-function IsIDCodeInValid() {
-    if ((document.getElementById("TxtFName").value.length > 20)
-        || (document.getElementById("TxtLName").value.length > 20)) {
-        return "Length should be less than 20 characters";
+function IsIdCodeInValid() {
+    if (isNaN(document.getElementById("TxtFName").value)
+        || (document.getElementById("TxtLName").value.length != 11)) {
+        return "Wrong length. ID Code contains 11 numbers!";
     }
-    return ""; isNaN(document.getElementById("TxtIdCode").value)
+    return ""; 
 }
 
+function IsValid() 
+{
+    var FieldEmptymessage = IsFieldEmpty();
+    var OnlyLettersmessage = ContainesOnlyLetters();
+    var LengthIsValidMessage = LengthIsValid();
+    var IsIdCodeInValidMessage = IsIdCodeInValid();
+    var FinalErrorMessage = "Errors:";
+
+    if (FieldEmptyEmptyMassage != "")
+        FinalErrorMessage += "\n" + FieldEmptyEmptyMessage;
+    if (OnlyLettersMessage != "")
+        FinalErrorMessage += "\n" + OnlyLettersMessage;
+    if (LenghtIsValidMessage != "")
+        FinalErrorMessage += "\n" + LenghtIsValidMessage;
+    if (IsIdCodeInValidMessage != "")
+        FinalErrorMessage += "\n" + IsIdCodeInValidMessage;
+    if (FinalErrorMessage != "Errors:") {
+        alert(FinalErrorMessage);
+        return false;
+    } else {
+        return true;
+    }
+
+}
+
+
+if (FinalErrorMessage != "Errors:") {
+    alert(FinalErrorMessage);
+    return false;
+} else {
+    return true;
+}
