@@ -14,6 +14,7 @@ namespace HospitalRegistry.Controllers
         public PatientController(RegistryDbContext db) { this.db = db; }
         public ActionResult Index()
         {
+
             var model = new PatientListViewModel();
             var patients = Patients.Get(db);
             var list = new List<PatientViewModel>();
