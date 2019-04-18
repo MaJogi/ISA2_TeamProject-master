@@ -7,22 +7,22 @@
     return "";
 }
 
-//function ContainsOnlyLetters() {
-//    var letters = /^ [a - zA - Z] * $ /;
-//    if ((document.getElementById("TxtFName").value.match(letters))
-//        && (document.getElementById("TxtLName").value.match(letters))) {
-//        return "";
-//    }
-//    return "Use only letters!";
-//}
+function ContainsOnlyLetters() {
+    var letters = /^[a-zA-Z]+$/;
+    if ((document.getElementById("TxtFName").value.match(letters))
+        && (document.getElementById("TxtLName").value.match(letters))) {
+        return "";
+    }
+    return "Use only *ENG* letters!";
+}
 
-//function ContainsOnlyNumbers() {
-//    var numbers = /^ [0 - 9] * $ /;
-//    if ((document.getElementById("IdCode").value.match(numbers))) {
-//        return "";
-//    }
-//    return "Use only numbers!";
-//}
+function ContainsOnlyNumbers() {
+    var numbers = /^\d+$/;
+    if ((document.getElementById("TxtIdCode").value.match(numbers))) {
+        return "";
+    }
+    return "Use only numbers!";
+}
 
 
 function LengthIsValid() {
@@ -34,34 +34,34 @@ function LengthIsValid() {
 
 }
 
-//var IdCodeLenght = 11;
+var IdCodeLenght = 11;
 
-//function IsIdCodeInValid() {
-//    if (isNaN(document.getElementById("TxtFName").value)
-//        || (document.getElementById("TxtLName").value.length != IdCodeLenght)) {
-//        return "Wrong length. ID Code contains 11 numbers!";
-//    }
-//    return ""; 
-//}
+function IsIdCodeInValid() {
+    if (document.getElementById("TxtIdCode").value.length != IdCodeLenght)
+       {
+        return "Wrong length. ID Code contains 11 numbers!";
+    }
+    return ""; 
+}
 
 function IsValid() {
     var FieldEmptyMessage = IsFieldEmpty();
-    //var OnlyLettersMessage = ContainsOnlyLetters();
-    //var OnlyNumbersMessage = ContainsOnlyNumbers();
+    var OnlyLettersMessage = ContainsOnlyLetters();
+    var OnlyNumbersMessage = ContainsOnlyNumbers();
     var LengthIsValidMessage = LengthIsValid();
-    //var IsIdCodeInValidMessage = IsIdCodeInValid();
+    var IsIdCodeInValidMessage = IsIdCodeInValid();
     var FinalErrorMessage = "Errors:";
 
     if (FieldEmptyMessage != "")
         FinalErrorMessage += "\n" + FieldEmptyMessage;
-    //if (OnlyLettersMessage != "")
-    //    FinalErrorMessage += "\n" + OnlyLettersMessage;
-    //if (OnlyNumbersMessage != "")
-    //    FinalErrorMessage += "\n" + OnlyNumbersMessage;
+    if (OnlyLettersMessage != "")
+        FinalErrorMessage += "\n" + OnlyLettersMessage;
+    if (OnlyNumbersMessage != "")
+        FinalErrorMessage += "\n" + OnlyNumbersMessage;
     if (LengthIsValidMessage != "")
         FinalErrorMessage += "\n" + LengthIsValidMessage;
-    //if (IsIdCodeInValidMessage != "")
-    //    FinalErrorMessage += "\n" + IsIdCodeInValidMessage;
+    if (IsIdCodeInValidMessage != "")
+        FinalErrorMessage += "\n" + IsIdCodeInValidMessage;
     if (FinalErrorMessage != "Errors:") {
         alert(FinalErrorMessage);
         return false;
