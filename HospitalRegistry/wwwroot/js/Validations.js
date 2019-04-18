@@ -38,6 +38,5 @@ function IsIDCodeInValid() {
         return "Length should be less than 20 characters";
     }
     return ""; isNaN(document.getElementById("TxtIdCode").value)
-
 }
 
