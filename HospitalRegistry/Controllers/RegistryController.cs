@@ -70,5 +70,6 @@ namespace HospitalRegistry.Controllers
     //    {
 
     //    }
+
     }
 }
