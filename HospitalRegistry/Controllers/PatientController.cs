@@ -3,6 +3,7 @@ using Facade;
 using Microsoft.AspNetCore.Mvc;
 using HospitalRegistry.Core;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Infra;
 using Core;
@@ -77,6 +78,49 @@ namespace HospitalRegistry.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null) return NotFound();
+            var patient = await db.Patients.SingleOrDefaultAsync
+                (m => m.PatientId == id);
+            if (patient == null) return NotFound();
+            return View("Edit", patient);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("PatientId,FirstName,LastName,IdCode,Problem,ValidFrom,ValidTo")]
+            Patient patient)
+        {
+            if (id != patient.PatientId) return NotFound();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    db.Update(patient);
+                    await db.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!PatientExists(patient.PatientId)) return NotFound();
+                        throw;
+                }
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(patient);
+        }
+
+        private bool PatientExists(int id)
+        {
+            return db.Patients.Any(e => e.PatientId == id);
+
+
+        }
+
+
 
 
 
