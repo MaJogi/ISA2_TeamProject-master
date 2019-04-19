@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using HospitalRegistry.Core;
 using System.Collections.Generic;
 using Infra;
+using System.Web.Mvc.ValidateAntiForgeryTokenAttribute;
 using System.Web.Mvc;
 
 
