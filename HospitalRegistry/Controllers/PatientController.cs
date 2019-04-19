@@ -3,9 +3,12 @@ using Facade;
 using Microsoft.AspNetCore.Mvc;
 using HospitalRegistry.Core;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Infra;
-using System.Web.Mvc.ValidateAntiForgeryTokenAttribute;
-using System.Web.Mvc;
+using Core;
+//using System.Web.Mvc.ValidateAntiForgeryTokenAttribute;
+using System.Web;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace HospitalRegistry.Controllers
@@ -24,6 +27,7 @@ namespace HospitalRegistry.Controllers
             foreach (var p in patients)
             {
                 var patient = new PatientViewModel(p);
+                patient.PatientId = p.PatientId;
                 list.Add(patient);
             }
             model.Patients = list;
@@ -52,6 +56,26 @@ namespace HospitalRegistry.Controllers
             Patients patients = new Patients();
             patients.Save(p, db);
             return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+            Patient patient = db.Patients.Find(id);
+            if (patient == null) return NotFound();
+            return View("Delete", patient);
+
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var patient = await db.Patients.SingleOrDefaultAsync
+                (m => m.PatientId == id);
+            db.Patients.Remove(patient);
+            await db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
 

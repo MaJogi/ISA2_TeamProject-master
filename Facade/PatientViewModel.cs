@@ -21,6 +21,7 @@ namespace Facade
 
         }
 
+        public int PatientId { get; set; }
         public string PatientName { get; set; }
         public string IdCode { get; set; }
         public string Problem { get; set; }

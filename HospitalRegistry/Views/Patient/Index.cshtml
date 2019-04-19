@@ -31,6 +31,9 @@
             <td style="background-color: @item.ProblemColor">@item.Problem</td>
             <td>@item.ValidFrom.ToString("dd/MM/yyyy")</td>
             <td>@item.ValidTo.ToString("dd/MM/yyyy")</td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.PatientId">Delete</a>
+            </td>
         </tr>
     }
 </table>
