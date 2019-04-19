@@ -12,6 +12,7 @@ namespace HospitalRegistry.Controllers
     {
         private readonly RegistryDbContext db;
         public PatientController(RegistryDbContext db) { this.db = db; }
+
         public ActionResult Index()
         {
 
@@ -24,6 +25,9 @@ namespace HospitalRegistry.Controllers
                 list.Add(patient);
             }
             model.Patients = list;
+            model.FooterData = new FooterViewModel();
+            model.FooterData.CompanyName = "Tallinn Hospital";
+            model.FooterData.Year = DateTime.Now.Year.ToString();
 
             return View("Index", model);
         }
@@ -64,6 +68,56 @@ namespace HospitalRegistry.Controllers
             patients.Save(p, db);
             return RedirectToAction("Index");
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -114,6 +114,7 @@
   <ItemGroup>
     <Compile Include="CreatePatientViewModel.cs" />
     <Compile Include="ErrorViewModel.cs" />
+    <Compile Include="FooterViewModel.cs" />
     <Compile Include="PatientListViewModel.cs" />
     <Compile Include="PatientViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
