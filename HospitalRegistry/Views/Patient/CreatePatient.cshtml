@@ -24,25 +24,29 @@
 <body>
     <div>
         <form action="/Patient/SavePatient" method="post">
+            @Html.AntiForgeryToken()
             <p>
-                First Name: <input type="text" id="TxtFName" name="FirstName" Value="@Model.FirstName" />
-                @Html.ValidationMessage("FirstName")
-            <p />
+            First Name: <input type="text" id="TxtFName" name="FirstName" Value="@Model.FirstName"/>
+            @Html.ValidationMessage("FirstName")
+            <p/>
             <p>
-                Last Name: <input type="text" id="TxtLName" name="LastName" Value="@Model.LastName" />
-                @Html.ValidationMessage("LastName")
-            <p />
+            Last Name: <input type="text" id="TxtLName" name="LastName" Value="@Model.LastName"/>
+            @Html.ValidationMessage("LastName")
+            <p/>
             <p>
-                IdCode: <input type="text" id="TxtIdCode" name="IdCode" Value="@Model.IdCode" />
-                @Html.ValidationMessage("IdCode")
-            <p />
-            <p>Problem: <input type="text" id="TxtProblem" name="Problem" Value="" /><p />
-            <p>Valid From: <input type="date" id="TxtValidFrom" name="ValidFrom" Value="" /><p />
-            <p>Valid To: <input type="date" id="TxtValidTo" name="ValidTo" Value="" /><p />
+            IdCode: <input type="text" id="TxtIdCode" name="IdCode" Value="@Model.IdCode"/>
+            @Html.ValidationMessage("IdCode")
+            <p/>
+            <p>Problem: <input type="text" id="TxtProblem" name="Problem" Value=""/>
+            <p/>
+            <p>Valid From: <input type="date" id="TxtValidFrom" name="ValidFrom" Value=""/>
+            <p/>
+            <p>Valid To: <input type="date" id="TxtValidTo" name="ValidTo" Value=""/><p />
 
-            <input type="submit" name="BtnSubmit" value="Save Patient" onclick="return IsValid();" />
-            <input type="button" name="BtnReset" value="Reset" onclick="ResetForm();" />
-            <input type="submit" name="BtnSubmit" value="Cancel" />
+            <input type="submit" name="BtnSubmit" value="Save Patient" onclick="return IsVali();" />
+            <input type="button" name="BtnReset" value="Reset" onclick="ResetFor();" />
+            <input type="submit" name="BtnSubmit" value="Cace
+            l"/>
         </form>
     </div>
 </body>
