@@ -1,0 +1,23 @@
+﻿@model Facade.FileUploadViewModel
+@{
+    ViewBag.Title = "Bulk Upload";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h3>Bulk Upload</h3>
+<div>
+    <a href="/Patient/Index">Back</a>
+    <form action="/BulkUpload/Upload" method="post" enctype="multipart/form-data">
+        Select File : <input type="file" name="fileUpload" value="" />
+        <input type="submit" name="name" value="Upload" />
+    </form>
+   
+</div>
+</body>
+</html>

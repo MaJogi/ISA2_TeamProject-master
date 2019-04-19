@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Http.Features">
+      <HintPath>..\..\..\..\.nuget\packages\microsoft.aspnetcore.app\3.0.0-preview-19075-0444\ref\netcoreapp3.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.EntityFrameworkCore, Version=2.2.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.EntityFrameworkCore.2.2.4\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
     </Reference>
@@ -114,6 +117,7 @@
   <ItemGroup>
     <Compile Include="CreatePatientViewModel.cs" />
     <Compile Include="ErrorViewModel.cs" />
+    <Compile Include="FileUploadViewModel.cs" />
     <Compile Include="FooterViewModel.cs" />
     <Compile Include="PatientListViewModel.cs" />
     <Compile Include="PatientViewModel.cs" />

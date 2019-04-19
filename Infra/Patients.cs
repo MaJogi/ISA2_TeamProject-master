@@ -23,5 +23,12 @@ namespace Infra
         public static bool IsValidUser(UserDetails user)
         { return user.UserName == "Admin" && user.Password == "Admin";  }
 
+
+        public void UploadPatients(List<Patient> patients, RegistryDbContext db)
+        {
+            db.Patients.AddRange(patients);
+            db.SaveChanges();
+        }
+
     }
 }
