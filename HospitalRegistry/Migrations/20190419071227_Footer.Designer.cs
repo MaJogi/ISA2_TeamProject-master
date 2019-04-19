@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HospitalRegistry.Migrations
 {
     [DbContext(typeof(RegistryDbContext))]
-    [Migration("20190417091232_initial3")]
-    partial class initial3
+    [Migration("20190419071227_Footer")]
+    partial class Footer
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

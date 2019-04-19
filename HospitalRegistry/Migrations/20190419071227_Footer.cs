@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HospitalRegistry.Migrations
 {
-    public partial class initial3 : Migration
+    public partial class Footer : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
