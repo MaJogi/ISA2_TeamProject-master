@@ -32,9 +32,7 @@ namespace HospitalRegistry.Controllers
                 list.Add(patient);
             }
             model.Patients = list;
-            model.FooterData = new FooterViewModel();
-            model.FooterData.CompanyName = "Tallinn Hospital";
-            model.FooterData.Year = DateTime.Now.Year.ToString();
+            model.FooterData = new FooterViewModel("Tallinn Hospital");
 
             return View("Index", model);
         }

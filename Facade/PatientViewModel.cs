@@ -29,12 +29,12 @@ namespace Facade
         public DateTime ValidFrom { get; set; }
         public DateTime ValidTo { get; set; }
 
-        public void setName(Patient p) //make it internal and fix not working with tests issue
+        internal void setName(Patient p) //make it internal and fix not working with tests issue
         {
             PatientName = p.FirstName + " " + p.LastName;
         }
 
-        public void setProblemColor(Patient p)
+        internal void setProblemColor(Patient p)
         {
             if (!ReferenceEquals(null, p)) // if patient isn't null
             {
@@ -47,21 +47,21 @@ namespace Facade
             }
         }
 
-        public void setProblem(Patient p)
+        internal void setProblem(Patient p)
         {
             Problem = p.Problem;
         }
 
-        public void setIdCode(Patient p)
+        internal void setIdCode(Patient p)
         {
             IdCode = p.IdCode;
         }
 
-        public void setValidFrom(Patient p)
+        internal void setValidFrom(Patient p)
         {
             ValidFrom = p.ValidFrom;
         }
-        public void setValidTo(Patient p)
+        internal void setValidTo(Patient p)
         {
             ValidTo = p.ValidTo;
         }
