@@ -1,6 +1,8 @@
 ﻿function IsFieldEmpty() {
     if ((document.getElementById("TxtFName").value == "")
         || (document.getElementById("TxtLName").value == "")
+        //|| (document.getElementById("TxtValidFrom").value == DateTime.MinValue) // Date From Error Message
+        //|| (document.getElementById("TxtValidTo").value == null)                // Date To Error Message
         || (document.getElementById("TxtIdCode").value == "")) {
         return "Required field!";
     }
@@ -44,12 +46,42 @@ function IsIdCodeInValid() {
     return ""; 
 }
 
+
+
+//function IsFromEmpty() {
+//    if (document.getElementById("TxtValidFrom").value == 0)
+//         {
+//        return "Please fill Date (From)";
+//    }
+//    return "";
+//}
+
+
+//function IsToEmpty() {
+//    if (document.getElementById("TxtValidTo").value == null) {
+//        return "Please fill Date (To)";
+//    }
+//    return "";
+//}
+
+function IsFieldProblemEmpty() {
+    if (document.getElementById("TxtProblem").value == "")
+        {
+        return "Fill problem";
+    }
+    return "";
+}
+
+
 function IsValid() {
     var FieldEmptyMessage = IsFieldEmpty();
     var OnlyLettersMessage = ContainsOnlyLetters();
     var OnlyNumbersMessage = ContainsOnlyNumbers();
     var LengthIsValidMessage = LengthIsValid();
     var IsIdCodeInValidMessage = IsIdCodeInValid();
+    //var IsFromEmptyMessage = IsFromEmpty();
+    //var IsToEmptyMessage = IsToEmpty();
+    var IsFieldProblemEmptyMessage = IsFieldProblemEmpty();
     var FinalErrorMessage = "Errors:";
 
     if (FieldEmptyMessage != "")
@@ -62,6 +94,12 @@ function IsValid() {
         FinalErrorMessage += "\n" + LengthIsValidMessage;
     if (IsIdCodeInValidMessage != "")
         FinalErrorMessage += "\n" + IsIdCodeInValidMessage;
+    //if (IsFromEmptyMessage != "")
+    //    FinalErrorMessage += "\n" + IsFromEmptyMessage;
+    //if (IsToEmptyMessage != "")
+    //    FinalErrorMessage += "\n" + IsToEmptyMessage;
+    if (IsFieldProblemEmptyMessage != "")
+        FinalErrorMessage += "\n" + IsFieldProblemEmptyMessage;
     if (FinalErrorMessage != "Errors:") {
         alert(FinalErrorMessage);
         return false;
