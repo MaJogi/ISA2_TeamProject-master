@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using HospitalRegistry.Controllers;
-using HospitalRegistry.Controllers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Mobile.Server.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
