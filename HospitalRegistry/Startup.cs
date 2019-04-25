@@ -11,9 +11,11 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HospitalRegistry.Data;
+using HospitalRegistry.Migrations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Infra;
+using Microsoft.Extensions.Hosting;
 
 namespace HospitalRegistry
 {
@@ -36,27 +38,27 @@ namespace HospitalRegistry
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            //We don't know what services.adddbcontext<applicationdbcontext> does, maybe remove?
+            
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDbContext<RegistryDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection"),
-                    b => b.MigrationsAssembly("HospitalRegistry")));
+                    Configuration.GetConnectionString("DefaultConnection")/*,*/
+/*                    b => b.MigrationsAssembly("HospitalRegistry")*/));
 
             services.AddDefaultIdentity<IdentityUser>() //should we keep it? Code breaks if we remove it
                 .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddEntityFrameworkStores<RegistryDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddMvc()
+            services.AddControllersWithViews()
                 .AddNewtonsoftJson();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {

@@ -12,9 +12,9 @@ namespace HospitalRegistry.Core
     {
         // Registry has the power to create Patient from the data that they gather
         // from users via requests that they sent via online form
-        private const string requiredField = "Required field";
-        private const string lenghtIsToBig = "Length should be less than 20 characters";
-        private const string wrongLength = "Wrong Length";
+        //private const string requiredField = "Required field";
+        //private const string lenghtIsToBig = "Length should be less than 20 characters";
+        //private const string wrongLength = "Wrong Length";
 
         public Patient() { } // Default countroller is needed to create empty Patient
 
@@ -27,7 +27,6 @@ namespace HospitalRegistry.Core
             ValidFrom = validFrom ?? DateTime.Now; //DateOfPatientCreation //Maybe DateTime.MinValue
             ValidTo = validTo ?? DateTime.MaxValue; //Date when patient is excluded (deleted from system/registry)
         }
-
 
 
         [ScaffoldColumn(false)]
