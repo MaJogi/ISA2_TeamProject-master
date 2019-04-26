@@ -10,7 +10,7 @@ namespace Tests
     [TestClass]
     public class HomeControllerTests
     {
-        public void Index()
+        public void Index() //COntrollleri testid tehakse viimasena ! Need on vastuvõtutestid! Väga keerulised
         {
             //HomeController controller = new HomeController();
             //ViewResult result = controller.Index() as ViewResult;

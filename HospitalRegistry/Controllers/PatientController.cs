@@ -9,6 +9,7 @@ using Infra;
 using Core;
 //using System.Web.Mvc.ValidateAntiForgeryTokenAttribute;
 using System.Web;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -18,7 +19,7 @@ namespace HospitalRegistry.Controllers
     {
         private readonly RegistryDbContext db;
         public PatientController(RegistryDbContext db) { this.db = db; }
-
+        [Authorize]
         public ActionResult Index()
         {
 
@@ -36,12 +37,12 @@ namespace HospitalRegistry.Controllers
 
             return View("Index", model);
         }
-
+        [Authorize]
         public ActionResult AddNew()
         {
             return View("CreatePatient", new CreatePatientViewModel());
         }
-
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult SavePatient(Patient p, string BtnSubmit)
         {
@@ -50,13 +51,14 @@ namespace HospitalRegistry.Controllers
             if (!ModelState.IsValid) return View("CreatePatient", new CreatePatientViewModel());
             return save(p);
         }
+        [Authorize]
         private ActionResult save(Patient p)
         {
             Patients patients = new Patients();
             patients.Save(p, db);
             return RedirectToAction("Index");
         }
-
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
@@ -65,7 +67,7 @@ namespace HospitalRegistry.Controllers
             return View("Delete", patient);
 
         }
-
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -76,7 +78,7 @@ namespace HospitalRegistry.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
@@ -85,7 +87,7 @@ namespace HospitalRegistry.Controllers
             if (patient == null) return NotFound();
             return View("Edit", patient);
         }
-
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("PatientId,FirstName,LastName,IdCode,Problem,ValidFrom,ValidTo")]
